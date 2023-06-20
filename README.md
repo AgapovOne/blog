@@ -6,6 +6,10 @@
 
 ---
 
+[My macOS setup](https://github.com/AgapovOne/macos-setup). Non-trivial apps, plugins, terminal
+
+---
+
 I work at [💙 Aviasales](https://aviasales.ru). My [CV](cv.pdf)
 
 Write me:
