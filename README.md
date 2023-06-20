@@ -1,7 +1,8 @@
 # Blog
 
-[📄 Articles](articles/)
-[🎙️ Talks](talks/)
+## [📄 Articles](articles/)
+
+## [🎙️ Talks](talks/)
 
 ---
 
