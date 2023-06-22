@@ -8,6 +8,6 @@ public func call() async throws -> Data {
     ).0
 }
 
-public struct Fact: Decodable {
+public struct Fact: Codable, Hashable {
     public let text: String
 }

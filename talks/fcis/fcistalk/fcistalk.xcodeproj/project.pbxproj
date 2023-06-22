@@ -11,9 +11,12 @@
 		23B65D952A4376B7006F3819 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B65D942A4376B7006F3819 /* ContentView.swift */; };
 		23B65D972A4376B9006F3819 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23B65D962A4376B9006F3819 /* Assets.xcassets */; };
 		23B65D9A2A4376B9006F3819 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23B65D992A4376B9006F3819 /* Preview Assets.xcassets */; };
-		23B65DA42A4376B9006F3819 /* fcistalkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B65DA32A4376B9006F3819 /* fcistalkTests.swift */; };
+		23B65DA42A4376B9006F3819 /* SystemViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B65DA32A4376B9006F3819 /* SystemViewModelTests.swift */; };
 		23B65DAE2A4376B9006F3819 /* fcistalkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B65DAD2A4376B9006F3819 /* fcistalkUITests.swift */; };
 		23B65DB02A4376B9006F3819 /* fcistalkUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B65DAF2A4376B9006F3819 /* fcistalkUITestsLaunchTests.swift */; };
+		23D110CC2A44C981001379DD /* FcisSystemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D110CB2A44C981001379DD /* FcisSystemViewModel.swift */; };
+		23D110CE2A44CE83001379DD /* FcisSystemViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D110CD2A44CE83001379DD /* FcisSystemViewModelTests.swift */; };
+		23D110D02A44D11B001379DD /* FcisSystemViewModelIntergrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D110CF2A44D11B001379DD /* FcisSystemViewModelIntergrationTests.swift */; };
 		23D1BD622A4467DB001379DD /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D1BD612A4467DB001379DD /* Helpers.swift */; };
 		23D1BD642A4467FF001379DD /* SystemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D1BD632A4467FF001379DD /* SystemViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -42,10 +45,13 @@
 		23B65D962A4376B9006F3819 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		23B65D992A4376B9006F3819 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		23B65D9F2A4376B9006F3819 /* fcistalkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = fcistalkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		23B65DA32A4376B9006F3819 /* fcistalkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fcistalkTests.swift; sourceTree = "<group>"; };
+		23B65DA32A4376B9006F3819 /* SystemViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemViewModelTests.swift; sourceTree = "<group>"; };
 		23B65DA92A4376B9006F3819 /* fcistalkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = fcistalkUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		23B65DAD2A4376B9006F3819 /* fcistalkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fcistalkUITests.swift; sourceTree = "<group>"; };
 		23B65DAF2A4376B9006F3819 /* fcistalkUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fcistalkUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		23D110CB2A44C981001379DD /* FcisSystemViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FcisSystemViewModel.swift; sourceTree = "<group>"; };
+		23D110CD2A44CE83001379DD /* FcisSystemViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FcisSystemViewModelTests.swift; sourceTree = "<group>"; };
+		23D110CF2A44D11B001379DD /* FcisSystemViewModelIntergrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FcisSystemViewModelIntergrationTests.swift; sourceTree = "<group>"; };
 		23D1BD612A4467DB001379DD /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		23D1BD632A4467FF001379DD /* SystemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -101,6 +107,7 @@
 				23B65D922A4376B7006F3819 /* fcistalkApp.swift */,
 				23B65D942A4376B7006F3819 /* ContentView.swift */,
 				23D1BD632A4467FF001379DD /* SystemViewModel.swift */,
+				23D110CB2A44C981001379DD /* FcisSystemViewModel.swift */,
 				23D1BD612A4467DB001379DD /* Helpers.swift */,
 				23B65D962A4376B9006F3819 /* Assets.xcassets */,
 				23B65D982A4376B9006F3819 /* Preview Content */,
@@ -119,7 +126,9 @@
 		23B65DA22A4376B9006F3819 /* fcistalkTests */ = {
 			isa = PBXGroup;
 			children = (
-				23B65DA32A4376B9006F3819 /* fcistalkTests.swift */,
+				23B65DA32A4376B9006F3819 /* SystemViewModelTests.swift */,
+				23D110CD2A44CE83001379DD /* FcisSystemViewModelTests.swift */,
+				23D110CF2A44D11B001379DD /* FcisSystemViewModelIntergrationTests.swift */,
 			);
 			path = fcistalkTests;
 			sourceTree = "<group>";
@@ -265,6 +274,7 @@
 			files = (
 				23B65D952A4376B7006F3819 /* ContentView.swift in Sources */,
 				23D1BD642A4467FF001379DD /* SystemViewModel.swift in Sources */,
+				23D110CC2A44C981001379DD /* FcisSystemViewModel.swift in Sources */,
 				23D1BD622A4467DB001379DD /* Helpers.swift in Sources */,
 				23B65D932A4376B7006F3819 /* fcistalkApp.swift in Sources */,
 			);
@@ -274,7 +284,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23B65DA42A4376B9006F3819 /* fcistalkTests.swift in Sources */,
+				23D110D02A44D11B001379DD /* FcisSystemViewModelIntergrationTests.swift in Sources */,
+				23D110CE2A44CE83001379DD /* FcisSystemViewModelTests.swift in Sources */,
+				23B65DA42A4376B9006F3819 /* SystemViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

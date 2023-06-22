@@ -11,7 +11,14 @@ import SwiftUI
 struct fcistalkApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(
+                viewModel: .init(
+                    track: { _ in },
+                    showSnackbar: { _ in },
+                    log: { _ in },
+                    call: { Data() }
+                )
+            )
         }
     }
 }

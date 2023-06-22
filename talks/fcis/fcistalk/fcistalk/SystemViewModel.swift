@@ -13,7 +13,7 @@ enum Event {
 
 final class SystemViewModel: ObservableObject {
 
-    enum State {
+    enum State: Equatable {
         case initial
         case loading
         case loaded(String)
@@ -25,15 +25,18 @@ final class SystemViewModel: ObservableObject {
     let track: (Event) -> Void
     let showSnackbar: (String) -> Void
     let log: (Any...) -> ()
+    let call: () async throws -> Data
 
     init(
         track: @escaping (Event) -> Void,
         showSnackbar: @escaping (String) -> Void,
-        log: @escaping (Any...) -> ()
+        log: @escaping (Any...) -> (),
+        call: @escaping () async throws -> Data
     ) {
         self.track = track
         self.showSnackbar = showSnackbar
         self.log = log
+        self.call = call
     }
 
     func handle(_ event: Event) {
@@ -53,9 +56,3 @@ final class SystemViewModel: ObservableObject {
         }
     }
 }
-
-let system = SuperSystemOrVC(
-    track: { print("track", $0) },
-    showSnackbar: { print("snackbar", $0) },
-    log: { print($0) }
-)
