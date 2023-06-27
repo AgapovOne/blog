@@ -1,11 +1,14 @@
 import Foundation
 
-let endpoint = URL(string: "https://uselessfacts.jsph.pl/api/v2/facts/random?language=ru")!
+enum Facts {
 
-public func call() async throws -> Data {
-    try await URLSession.shared.data(
-        for: URLRequest(url: endpoint)
-    ).0
+    static let endpoint = URL(string: "https://uselessfacts.jsph.pl/api/v2/facts/random?language=ru")!
+
+    public func get() async throws -> Data {
+        try await URLSession.shared.data(
+            for: URLRequest(url: Facts.endpoint)
+        ).0
+    }
 }
 
 public struct Fact: Codable, Hashable {

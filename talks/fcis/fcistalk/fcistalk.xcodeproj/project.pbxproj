@@ -12,8 +12,6 @@
 		23B65D972A4376B9006F3819 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23B65D962A4376B9006F3819 /* Assets.xcassets */; };
 		23B65D9A2A4376B9006F3819 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23B65D992A4376B9006F3819 /* Preview Assets.xcassets */; };
 		23B65DA42A4376B9006F3819 /* SystemViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B65DA32A4376B9006F3819 /* SystemViewModelTests.swift */; };
-		23B65DAE2A4376B9006F3819 /* fcistalkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B65DAD2A4376B9006F3819 /* fcistalkUITests.swift */; };
-		23B65DB02A4376B9006F3819 /* fcistalkUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B65DAF2A4376B9006F3819 /* fcistalkUITestsLaunchTests.swift */; };
 		23D110CC2A44C981001379DD /* FcisSystemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D110CB2A44C981001379DD /* FcisSystemViewModel.swift */; };
 		23D110CE2A44CE83001379DD /* FcisSystemViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D110CD2A44CE83001379DD /* FcisSystemViewModelTests.swift */; };
 		23D110D02A44D11B001379DD /* FcisSystemViewModelIntergrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D110CF2A44D11B001379DD /* FcisSystemViewModelIntergrationTests.swift */; };
@@ -29,16 +27,10 @@
 			remoteGlobalIDString = 23B65D8E2A4376B7006F3819;
 			remoteInfo = fcistalk;
 		};
-		23B65DAA2A4376B9006F3819 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 23B65D872A4376B7006F3819 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 23B65D8E2A4376B7006F3819;
-			remoteInfo = fcistalk;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2341890A2A4AB245003899E4 /* fcistalk.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = fcistalk.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		23B65D8F2A4376B7006F3819 /* fcistalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fcistalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23B65D922A4376B7006F3819 /* fcistalkApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fcistalkApp.swift; sourceTree = "<group>"; };
 		23B65D942A4376B7006F3819 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -46,9 +38,6 @@
 		23B65D992A4376B9006F3819 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		23B65D9F2A4376B9006F3819 /* fcistalkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = fcistalkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		23B65DA32A4376B9006F3819 /* SystemViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemViewModelTests.swift; sourceTree = "<group>"; };
-		23B65DA92A4376B9006F3819 /* fcistalkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = fcistalkUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		23B65DAD2A4376B9006F3819 /* fcistalkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fcistalkUITests.swift; sourceTree = "<group>"; };
-		23B65DAF2A4376B9006F3819 /* fcistalkUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fcistalkUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		23D110CB2A44C981001379DD /* FcisSystemViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FcisSystemViewModel.swift; sourceTree = "<group>"; };
 		23D110CD2A44CE83001379DD /* FcisSystemViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FcisSystemViewModelTests.swift; sourceTree = "<group>"; };
 		23D110CF2A44D11B001379DD /* FcisSystemViewModelIntergrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FcisSystemViewModelIntergrationTests.swift; sourceTree = "<group>"; };
@@ -71,22 +60,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		23B65DA62A4376B9006F3819 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		23B65D862A4376B7006F3819 = {
 			isa = PBXGroup;
 			children = (
+				2341890A2A4AB245003899E4 /* fcistalk.playground */,
 				23B65D912A4376B7006F3819 /* fcistalk */,
 				23B65DA22A4376B9006F3819 /* fcistalkTests */,
-				23B65DAC2A4376B9006F3819 /* fcistalkUITests */,
 				23B65D902A4376B7006F3819 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -96,7 +78,6 @@
 			children = (
 				23B65D8F2A4376B7006F3819 /* fcistalk.app */,
 				23B65D9F2A4376B9006F3819 /* fcistalkTests.xctest */,
-				23B65DA92A4376B9006F3819 /* fcistalkUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -131,15 +112,6 @@
 				23D110CF2A44D11B001379DD /* FcisSystemViewModelIntergrationTests.swift */,
 			);
 			path = fcistalkTests;
-			sourceTree = "<group>";
-		};
-		23B65DAC2A4376B9006F3819 /* fcistalkUITests */ = {
-			isa = PBXGroup;
-			children = (
-				23B65DAD2A4376B9006F3819 /* fcistalkUITests.swift */,
-				23B65DAF2A4376B9006F3819 /* fcistalkUITestsLaunchTests.swift */,
-			);
-			path = fcistalkUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -180,24 +152,6 @@
 			productReference = 23B65D9F2A4376B9006F3819 /* fcistalkTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		23B65DA82A4376B9006F3819 /* fcistalkUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 23B65DB92A4376B9006F3819 /* Build configuration list for PBXNativeTarget "fcistalkUITests" */;
-			buildPhases = (
-				23B65DA52A4376B9006F3819 /* Sources */,
-				23B65DA62A4376B9006F3819 /* Frameworks */,
-				23B65DA72A4376B9006F3819 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				23B65DAB2A4376B9006F3819 /* PBXTargetDependency */,
-			);
-			name = fcistalkUITests;
-			productName = fcistalkUITests;
-			productReference = 23B65DA92A4376B9006F3819 /* fcistalkUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -212,10 +166,6 @@
 						CreatedOnToolsVersion = 14.3;
 					};
 					23B65D9E2A4376B9006F3819 = {
-						CreatedOnToolsVersion = 14.3;
-						TestTargetID = 23B65D8E2A4376B7006F3819;
-					};
-					23B65DA82A4376B9006F3819 = {
 						CreatedOnToolsVersion = 14.3;
 						TestTargetID = 23B65D8E2A4376B7006F3819;
 					};
@@ -236,7 +186,6 @@
 			targets = (
 				23B65D8E2A4376B7006F3819 /* fcistalk */,
 				23B65D9E2A4376B9006F3819 /* fcistalkTests */,
-				23B65DA82A4376B9006F3819 /* fcistalkUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -252,13 +201,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		23B65D9D2A4376B9006F3819 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		23B65DA72A4376B9006F3819 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -290,15 +232,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		23B65DA52A4376B9006F3819 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				23B65DB02A4376B9006F3819 /* fcistalkUITestsLaunchTests.swift in Sources */,
-				23B65DAE2A4376B9006F3819 /* fcistalkUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -306,11 +239,6 @@
 			isa = PBXTargetDependency;
 			target = 23B65D8E2A4376B7006F3819 /* fcistalk */;
 			targetProxy = 23B65DA02A4376B9006F3819 /* PBXContainerItemProxy */;
-		};
-		23B65DAB2A4376B9006F3819 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 23B65D8E2A4376B7006F3819 /* fcistalk */;
-			targetProxy = 23B65DAA2A4376B9006F3819 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -527,42 +455,6 @@
 			};
 			name = Release;
 		};
-		23B65DBA2A4376B9006F3819 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 79NBZML2KJ;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.agpone.fcistalkUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = fcistalk;
-			};
-			name = Debug;
-		};
-		23B65DBB2A4376B9006F3819 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 79NBZML2KJ;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.agpone.fcistalkUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = fcistalk;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -589,15 +481,6 @@
 			buildConfigurations = (
 				23B65DB72A4376B9006F3819 /* Debug */,
 				23B65DB82A4376B9006F3819 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		23B65DB92A4376B9006F3819 /* Build configuration list for PBXNativeTarget "fcistalkUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				23B65DBA2A4376B9006F3819 /* Debug */,
-				23B65DBB2A4376B9006F3819 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

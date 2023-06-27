@@ -13,10 +13,12 @@ struct fcistalkApp: App {
         WindowGroup {
             ContentView(
                 viewModel: .init(
-                    track: { _ in },
-                    showSnackbar: { _ in },
-                    log: { _ in },
-                    call: { Data() }
+                    deps: .init(
+                        track: { _ in },
+                        showSnackbar: { _ in },
+                        log: { _ in },
+                        call: { Data() }
+                    )
                 )
             )
         }

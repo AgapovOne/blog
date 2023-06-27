@@ -29,10 +29,12 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView(
             viewModel: .init(
-                track: { print("track", $0) },
-                showSnackbar: { print("snackbar", $0) },
-                log: { print($0) },
-                call: { Data() }
+                deps: .init(
+                    track: { print("track", $0) },
+                    showSnackbar: { print("snackbar", $0) },
+                    log: { print($0) },
+                    call: { Data() }
+                )
             )
         )
     }

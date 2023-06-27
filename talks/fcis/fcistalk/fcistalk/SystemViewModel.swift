@@ -21,37 +21,34 @@ final class SystemViewModel: ObservableObject {
 
     @Published var state: State = .initial
 
-    // Dependencies
-    let track: (Event) -> Void
-    let showSnackbar: (String) -> Void
-    let log: (Any...) -> ()
-    let call: () async throws -> Data
+    struct Deps {
+        let track: (Event) -> Void
+        let showSnackbar: (String) -> Void
+        let log: (Any...) -> ()
+        let call: () async throws -> Data
+    }
+
+    let deps: Deps
 
     init(
-        track: @escaping (Event) -> Void,
-        showSnackbar: @escaping (String) -> Void,
-        log: @escaping (Any...) -> (),
-        call: @escaping () async throws -> Data
+        deps: Deps
     ) {
-        self.track = track
-        self.showSnackbar = showSnackbar
-        self.log = log
-        self.call = call
+        self.deps = deps
     }
 
     func handle(_ event: Event) {
         state = .loading
-        track(event)
+        deps.track(event)
         Task {
             do {
-                let data = try await call()
-                log(String(data: data, encoding: .utf8)!)
+                let data = try await deps.call()
+                deps.log(String(data: data, encoding: .utf8)!)
                 let fact = try JSONDecoder().decode(Fact.self, from: data)
-                log(fact)
+                deps.log(fact)
                 state = .loaded(fact.text)
             } catch {
-                log(error)
-                showSnackbar("SHTO-TO POSHLO NE TAQ")
+                deps.log(error)
+                deps.showSnackbar("SHTO-TO POSHLO NE TAQ")
             }
         }
     }
