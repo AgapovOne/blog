@@ -50,7 +50,7 @@ Pointfree про зависимости и их контроль.
 
 Массив ошибок полезнее. Пригодится для парсинга и превращения типов
 
-[Книга Domain Modeling Made Functional](https://fsharpforfunandprofit.com/books/)
+[Книга Domain Modeling Made Functional, Scott Wlaschin](https://fsharpforfunandprofit.com/books/)
 
 [Конспект книги на русском](https://bespoyasov.ru/blog/domain-modelling-made-functional/)
 
