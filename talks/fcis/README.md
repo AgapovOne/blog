@@ -24,6 +24,14 @@
 
 Форум и обсуждение
 
+[FP architecture](https://www.youtube.com/watch?v=US8QG9I1XW0)
+
+Много идей. Изоляция, тестирование показались интересными.
+
+[Basic FP in Swift](https://www.vadimbulavin.com/pure-functions-higher-order-functions-and-first-class-functions-in-swift/)
+
+Статья с базовыми идеями и примерами на Swift.
+
 ---
 
 [Take control of your dependencies](https://www.youtube.com/watch?v=pHOyEivnmb0)
