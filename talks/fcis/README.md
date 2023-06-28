@@ -2,11 +2,11 @@
 
 ## Список материалов
 
-[Type-Driven Design in Swift. Alex Ozun](https://www.youtube.com/watch?v=pbVjkY9fS8c)
+[👑 Type-Driven Design in Swift. Alex Ozun](https://www.youtube.com/watch?v=pbVjkY9fS8c)
 
 Доклад с кучей концепций. Крутое введение в концепции ФП, которые пригодятся в ежедневном программировании.
 
-[Boundaries. Gary Bernhardt](https://www.destroyallsoftware.com/talks/boundaries)
+[👑 Boundaries. Gary Bernhardt](https://www.destroyallsoftware.com/talks/boundaries)
 
 [Functional Core, Imperative Shell](https://www.destroyallsoftware.com/screencasts/catalog/functional-core-imperative-shell)
 
