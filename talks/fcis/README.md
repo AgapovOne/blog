@@ -13,6 +13,7 @@
 Автор именования Functional Core, Imperative Shell. Примеры на Ruby, но объясняет концепцию понятно с примерами.
 
 [Functional Core Imperative shell materials from kblisted](https://github.com/kbilsted/Functional-core-imperative-shell)
+
 Набор разных материалов по теме. Такой же сборник статей и видео.
 
 [Functional Core Imperative Shell from Kenneth Lange](https://kennethlange.com/functional-core-imperative-shell/)
@@ -35,4 +36,6 @@ Pointfree про зависимости и их контроль.
 
 [Swift Validated from Pointfree](https://github.com/pointfreeco/swift-validated)
 
-Result<Success, Error>, толкьо с массивом ошибок. Пригодится для парсинга и превращения типов
+`Result<Success, Error>` -> `Validated<Success, [Error]>`
+
+Массив ошибок полезнее. Пригодится для парсинга и превращения типов
