@@ -34,6 +34,8 @@
 
 ---
 
+Связанные темы
+
 [Take control of your dependencies](https://www.youtube.com/watch?v=pHOyEivnmb0)
 
 Pointfree про зависимости и их контроль.
@@ -47,3 +49,12 @@ Pointfree про зависимости и их контроль.
 `Result<Success, Error>` -> `Validated<Success, [Error]>`
 
 Массив ошибок полезнее. Пригодится для парсинга и превращения типов
+
+[Книга Domain Modeling Made Functional](https://fsharpforfunandprofit.com/books/)
+
+[Конспект книги на русском](https://bespoyasov.ru/blog/domain-modelling-made-functional/)
+
+Крутая книга, крутой дед и крутой блог. 
+
+Его [видео про 13 видов посмотреть на черепашку](https://fsharpforfunandprofit.com/posts/13-ways-of-looking-at-a-turtle/) расширило мне кругозор и показало разные способы подхода к одной и той же задаче.
+
