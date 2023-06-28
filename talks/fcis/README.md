@@ -58,3 +58,5 @@ Pointfree про зависимости и их контроль.
 
 Его [видео про 13 видов посмотреть на черепашку](https://fsharpforfunandprofit.com/posts/13-ways-of-looking-at-a-turtle/) расширило мне кругозор и показало разные способы подхода к одной и той же задаче.
 
+[И его видео про функциональные паттерны](https://fsharpforfunandprofit.com/fppatterns/)
+
