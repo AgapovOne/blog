@@ -11,10 +11,6 @@
 
 Автор именования Functional Core, Imperative Shell. Примеры на Ruby, но объясняет концепцию понятно с примерами.
 
-[Take control of your dependencies](https://www.youtube.com/watch?v=pHOyEivnmb0)
-
-Pointfree про зависимости и их контроль.
-
 [Functional Core Imperative shell materials from kblisted](https://github.com/kbilsted/Functional-core-imperative-shell)
 Набор разных материалов по теме. Такой же сборник статей и видео.
 
@@ -22,6 +18,16 @@ Pointfree про зависимости и их контроль.
 
 Статья с теорией. Немного другими словами, но то же самое.
 
-[Обсуждение на Hacker News](https://news.ycombinator.com/item?id=18043058)
+[Обсуждение на Hacker News о FCIS](https://news.ycombinator.com/item?id=18043058)
 
 Форум и обсуждение
+
+---
+
+[Take control of your dependencies](https://www.youtube.com/watch?v=pHOyEivnmb0)
+
+Pointfree про зависимости и их контроль.
+
+[Parse, don't validate](https://lexi-lambda.github.io/blog/2019/11/05/parse-don-t-validate/)
+
+Сложные примеры, но хорошие идеи и выводы
