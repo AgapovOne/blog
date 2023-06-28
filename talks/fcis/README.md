@@ -7,6 +7,7 @@
 Доклад с кучей концепций. Крутое введение в концепции ФП, которые пригодятся в ежедневном программировании.
 
 [Boundaries. Gary Bernhardt](https://www.destroyallsoftware.com/talks/boundaries)
+
 [Functional Core, Imperative Shell](https://www.destroyallsoftware.com/screencasts/catalog/functional-core-imperative-shell)
 
 Автор именования Functional Core, Imperative Shell. Примеры на Ruby, но объясняет концепцию понятно с примерами.
@@ -31,3 +32,7 @@ Pointfree про зависимости и их контроль.
 [Parse, don't validate](https://lexi-lambda.github.io/blog/2019/11/05/parse-don-t-validate/)
 
 Сложные примеры, но хорошие идеи и выводы
+
+[Swift Validated from Pointfree](https://github.com/pointfreeco/swift-validated)
+
+Result<Success, Error>, толкьо с массивом ошибок. Пригодится для парсинга и превращения типов
