@@ -20,6 +20,7 @@ final class SystemViewModelTests: XCTestCase {
                 showSnackbar: { _ in},
                 log: { _ in },
                 fetchFact: {
+                    try await Task.sleep(for: .seconds(1))
                     defer {
                         expectation.fulfill()
                     }

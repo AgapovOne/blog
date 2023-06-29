@@ -20,6 +20,7 @@ final class FcisSystemViewModelIntegrationTests: XCTestCase {
                 showSnackbar: { _ in},
                 log: { _ in },
                 fetchFact: {
+                    try await Task.sleep(for: .seconds(1))
                     defer {
                         expectation.fulfill()
                     }
@@ -34,7 +35,7 @@ final class FcisSystemViewModelIntegrationTests: XCTestCase {
 
         wait(for: [expectation])
 
-        try await Task.sleep(for: .seconds(1)) // WAT
+//        try await Task.sleep(for: .seconds(1)) // WAT
 
         XCTAssertEqual(viewModel.state, .loaded("some funny fact"))
     }
