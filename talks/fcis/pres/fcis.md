@@ -110,12 +110,8 @@ viewModel.handle(.userDidTapButton)
 XCTAssertEqual(viewModel.state, .loading)
 
 wait(for: [expectation])
-try await Task.sleep(for: .seconds(1)) // WAT
 XCTAssertEqual(viewModel.state, .loaded("some funny fact"))
 ```
-
-^ 1. expectation! Каждый новый инпут - новый expectation
-^ 2. Нужны моки или зависимости
 
 ---
 
@@ -717,12 +713,8 @@ viewModel.handle(.userDidTapButton)
 XCTAssertEqual(viewModel.state, .loading)
 
 wait(for: [expectation])
-try await Task.sleep(for: .seconds(1)) // WAT
 XCTAssertEqual(viewModel.state, .loaded("some funny fact"))
 ```
-
-^ 1. expectation! Каждый новый инпут - новый expectation
-^ 2. Нужны моки или зависимости
 
 ---
 
