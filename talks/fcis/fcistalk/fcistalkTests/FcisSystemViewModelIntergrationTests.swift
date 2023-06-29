@@ -34,9 +34,7 @@ final class FcisSystemViewModelIntegrationTests: XCTestCase {
         XCTAssertEqual(viewModel.state, .loading)
 
         wait(for: [expectation])
-
-//        try await Task.sleep(for: .seconds(1)) // WAT
-
+        
         XCTAssertEqual(viewModel.state, .loaded("some funny fact"))
     }
 
