@@ -33,7 +33,7 @@ struct ContentView_Previews: PreviewProvider {
                     track: { print("track", $0) },
                     showSnackbar: { print("snackbar", $0) },
                     log: { print($0) },
-                    call: { Data() }
+                    fetchFact: { Fact(text: "fake fact") }
                 )
             )
         )

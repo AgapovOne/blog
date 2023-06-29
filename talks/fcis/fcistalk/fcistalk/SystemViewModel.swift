@@ -25,7 +25,7 @@ final class SystemViewModel: ObservableObject {
         let track: (Event) -> Void
         let showSnackbar: (String) -> Void
         let log: (Any...) -> ()
-        let call: () async throws -> Data
+        let fetchFact: () async throws -> Fact
     }
 
     let deps: Deps
@@ -41,9 +41,7 @@ final class SystemViewModel: ObservableObject {
         deps.track(event)
         Task {
             do {
-                let data = try await deps.call()
-                deps.log(String(data: data, encoding: .utf8)!)
-                let fact = try JSONDecoder().decode(Fact.self, from: data)
+                let fact = try await deps.fetchFact()
                 deps.log(fact)
                 state = .loaded(fact.text)
             } catch {

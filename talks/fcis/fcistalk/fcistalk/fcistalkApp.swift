@@ -17,7 +17,10 @@ struct fcistalkApp: App {
                         track: { _ in },
                         showSnackbar: { _ in },
                         log: { _ in },
-                        call: { Data() }
+                        fetchFact: {
+                            let data = try await Facts.get()
+                            return try JSONDecoder().decode(Fact.self, from: data)
+                        }
                     )
                 )
             )

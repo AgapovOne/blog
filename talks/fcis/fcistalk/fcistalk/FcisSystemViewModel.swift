@@ -20,16 +20,16 @@ final class FcisSystemViewModel: ObservableObject {
             case userDidTapButton
         }
 
-        enum SystemEvent: Hashable {
+        enum ViewModelEvent: Hashable {
             case finishLoading(Fact)
             case failedLoading(String)
         }
 
         case view(ViewEvent)
-        case system(SystemEvent)
+        case model(ViewModelEvent)
     }
 
-    enum Effect: Hashable {
+    enum Decision: Hashable {
         case load
         case track(Event)
         case log(String)
@@ -42,7 +42,7 @@ final class FcisSystemViewModel: ObservableObject {
         let track: (Event) -> Void
         let showSnackbar: (String) -> Void
         let log: (Any...) -> ()
-        let call: () async throws -> Data
+        let fetchFact: () async throws -> Fact
     }
 
     let deps: Deps
@@ -58,16 +58,16 @@ final class FcisSystemViewModel: ObservableObject {
     }
 
     private func handle(_ event: Event) {
-        Self.makeEffects(event, &state).forEach {
+        let decisions = Self.makeDecisions(event, &state)
+        decisions.forEach {
             switch $0 {
                 case .load:
                     Task {
                         do {
-                            let data = try await deps.call()
-                            let fact = try JSONDecoder().decode(Fact.self, from: data)
-                            handle(.system(.finishLoading(fact)))
+                            let fact = try await deps.fetchFact()
+                            handle(.model(.finishLoading(fact)))
                         } catch {
-                            handle(.system(.failedLoading(error.localizedDescription)))
+                            handle(.model(.failedLoading(error.localizedDescription)))
                         }
                     }
                 case .log(let something):
@@ -80,18 +80,17 @@ final class FcisSystemViewModel: ObservableObject {
         }
     }
 
-
-    static func makeEffects(
+    static func makeDecisions(
         _ event: Event,
         _ state: inout State
-    ) -> [Effect] {
+    ) -> [Decision] {
         switch event {
             case .view(.userDidTapButton):
                 state = .loading
                 return [.track(event), .load]
-            case .system(.failedLoading(let error)):
+            case .model(.failedLoading(let error)):
                 return [.log(error), .showSnackbar("SHTO-TO POSHLO NE TAQ")]
-            case .system(.finishLoading(let fact)):
+            case .model(.finishLoading(let fact)):
 
                 state = .loaded(fact.text)
                 return [.log(fact.text)]

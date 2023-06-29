@@ -19,15 +19,11 @@ final class SystemViewModelTests: XCTestCase {
                 track: { _ in },
                 showSnackbar: { _ in},
                 log: { _ in },
-                call: {
-                    try await Task.sleep(for: .seconds(1))
-
+                fetchFact: {
                     defer {
                         expectation.fulfill()
                     }
-
-                    let fact =  Fact(text: "some funny fact")
-                    return try JSONEncoder().encode(fact)
+                    return Fact(text: "some funny fact")
                 }
             )
         )
@@ -38,7 +34,7 @@ final class SystemViewModelTests: XCTestCase {
 
         wait(for: [expectation])
 
-        try await Task.sleep(for: .seconds(1)) // WAT
+//        try await Task.sleep(for: .seconds(1)) // WAT
 
         XCTAssertEqual(viewModel.state, .loaded("some funny fact"))
     }
