@@ -9,8 +9,8 @@ import Foundation
 import SwiftUI
 
 enum Event {
-    case userDidTapButton
-    case onAppear
+    case didTapButton
+    case didAppear
 }
 
 @MainActor
@@ -42,7 +42,7 @@ final class SystemViewModel: ObservableObject {
     func handle(_ event: Event) {
         deps.log(event)
         switch event {
-            case .userDidTapButton:
+            case .didTapButton:
                 state = .loading
                 deps.track(event)
                 Task {
@@ -55,7 +55,7 @@ final class SystemViewModel: ObservableObject {
                         deps.showSnackbar("SHTO-TO POSHLO NE TAQ")
                     }
                 }
-            case .onAppear:
+            case .didAppear:
                 break
         }
     }

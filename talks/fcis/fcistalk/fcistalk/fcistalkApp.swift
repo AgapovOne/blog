@@ -10,7 +10,7 @@ import SwiftUI
 @main
 struct fcistalkApp: App {
 
-    @StateObject var viewModel = FcisSystemViewModel(
+    @StateObject var viewModel = SystemViewModel(
         deps: .init(
             track: { _ in },
             showSnackbar: { _ in },

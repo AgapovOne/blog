@@ -55,7 +55,7 @@ autoscale: true
 # MVVM
 
 ```swift
-enum Event { case userDidTapButton }
+enum Event { case didTapButton }
 
 enum State: Equatable {
     case loading
@@ -64,7 +64,7 @@ enum State: Equatable {
 
 struct Deps {
     let showSnackbar: (String) -> Void
-    let fetchFact: () async throws -> Data
+    let loadFact: () async throws -> Fact
 }
 
 func handle(_ event: Event) {}
@@ -74,12 +74,18 @@ func handle(_ event: Event) {}
 
 # MVVM
 
+[.code-highlight: all]
+[.code-highlight: 2]
+[.code-highlight: 3]
+[.code-highlight: 5]
+[.code-highlight: all]
+
 ```swift
 func handle(_ event: Event) {
     state = .loading
     Task {
-          do {
-            let fact = try await deps.fetchFact()
+        do {
+            let fact = try await deps.loadFact()
             state = .loaded(fact.text)
         } catch {
             deps.showSnackbar("Went wrong")
@@ -104,11 +110,11 @@ let expectation = expectation(description: "fact loading")
 let viewModel = SystemViewModel(
     deps: .init(
         //...
-        fetchFact: { Fact(text: "some funny fact") }
+        loadFact: { Fact(text: "some funny fact") }
     )
 )
 
-viewModel.handle(.userDidTapButton)
+viewModel.handle(.didTapButton)
 XCTAssertEqual(viewModel.state, .loading)
 
 wait(for: [expectation])
@@ -414,13 +420,13 @@ func execute(decision: Decision) {}
 [.code-highlight: all]
 
 ```swift
-enum Event { case userDidTapButton }
+enum Event { case didTapButton }
 enum Decision { case showSnackbar }
 
 enum State { case loading, failed }
 
 func decision(event: Event, state: State) -> Decision? { // 🫧 pure
-    if event == .userDidTapButton {
+    if event == .didTapButton {
         switch state {
             case .failed: return .showSnackbar("Everything went wrong")
             case .loading: return nil
@@ -660,7 +666,7 @@ Parse, don't validate
 # MVVM
 
 ```swift
-enum Event { case userDidTapButton }
+enum Event { case didTapButton }
 
 enum State: Equatable {
     case loading
@@ -671,7 +677,7 @@ struct Deps {
     let track: (Event) -> Void
     let showSnackbar: (String) -> Void
     let log: (Any...) -> ()
-    let fetchFact: () async throws -> Data
+    let loadFact: () async throws -> Fact
 }
 
 func handle(_ event: Event) {}
@@ -687,7 +693,7 @@ func handle(_ event: Event) {
     deps.track(event)
     Task {
           do {
-            let fact = try await deps.fetchFact()
+            let fact = try await deps.loadFact()
             deps.log(fact)
             state = .loaded(fact.text)
         } catch {
@@ -707,11 +713,11 @@ let expectation = expectation(description: "fact loading")
 let viewModel = SystemViewModel(
     deps: .init(
         //...
-        fetchFact: { Fact(text: "some funny fact") }
+        loadFact: { Fact(text: "some funny fact") }
     )
 )
 
-viewModel.handle(.userDidTapButton)
+viewModel.handle(.didTapButton)
 XCTAssertEqual(viewModel.state, .loading)
 
 wait(for: [expectation])
@@ -729,7 +735,7 @@ func handle(_ event: Event) {
     deps.track(event)
     Task {
           do {
-            let fact = try await deps.fetchFact()
+            let fact = try await deps.loadFact()
             deps.log(fact)
             state = .loaded(fact.text)
         } catch {
@@ -757,7 +763,7 @@ func handle(_ event: Event) {
         switch $0 {
             case .load: Task {
                 do {
-                    let fact = try await deps.fetchFact()
+                    let fact = try await deps.loadFact()
                     handle(.model(.finishLoading(fact)))
                 } catch {
                     handle(.model(.failedLoading(error.localizedDescription)))
@@ -781,7 +787,7 @@ enum Core {
       state: State
   ) -> (State, [Decision]) {
       switch event {
-          case .view(.userDidTapButton):
+          case .view(.didTapButton):
               return (.loading, [.track(event), .load])
           case .model(.failedLoading(let error)):
               return (state, [.log(error), .showSnackbar("Went wrong")])
@@ -803,7 +809,7 @@ enum Core {
       state: inout State
   ) -> [Decision] {
       switch event {
-          case .view(.userDidTapButton):
+          case .view(.didTapButton):
               state = .loading
               return [.track(event), .load]
           case .model(.failedLoading(let error)):
@@ -825,7 +831,7 @@ enum Core {
 ```swift
 enum Event: Hashable {
     enum ViewEvent: Hashable {
-        case userDidTapButton
+        case didTapButton
     }
 
     enum ViewModelEvent: Hashable {
@@ -857,7 +863,7 @@ enum Decision: Hashable {
 
 func test_effects_onUserTap_startsLoading() async throws {
     var state = State.initial
-    let decisions = FcisVM.makeDecisions(.view(.userDidTapButton), &state)
+    let decisions = FcisVM.makeDecisions(.view(.didTapButton), &state)
 
     XCTAssertEqual(state, .loading)
     XCTAssertTrue(decisions.contains(.load))  // Isolated match only on one function of our system
@@ -971,7 +977,7 @@ struct Deps {
     var track: (Event) -> Void
     var showSnackbar: (String) -> Void
     var log: (Any...) -> Void
-    var call: () async throws -> Data
+    var loadFact: () async throws -> Fact
 }
 ```
 

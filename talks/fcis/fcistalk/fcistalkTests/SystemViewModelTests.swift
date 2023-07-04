@@ -8,6 +8,7 @@
 import XCTest
 @testable import fcistalk
 
+@MainActor
 final class SystemViewModelTests: XCTestCase {
 
     func testExample() async throws {
@@ -29,7 +30,7 @@ final class SystemViewModelTests: XCTestCase {
             )
         )
 
-        viewModel.handle(.userDidTapButton)
+        viewModel.handle(.didTapButton)
 
         XCTAssertEqual(viewModel.state, .loading)
 

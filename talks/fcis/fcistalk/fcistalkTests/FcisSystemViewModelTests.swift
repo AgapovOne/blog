@@ -8,11 +8,12 @@
 import XCTest
 @testable import fcistalk
 
+@MainActor
 final class FcisSystemViewModelTests: XCTestCase {
 
     func test_effects_onUserTap_startsLoading() async throws {
         var state = FcisSystemViewModel.State.initial
-        let decisions = FcisSystemViewModel.makeDecisions(.view(.userDidTapButton), &state)
+        let decisions = FcisSystemViewModel.makeDecisions(.view(.didTapButton), &state)
 
         // Isolated match only on one function of our system
         XCTAssertEqual(state, .loading)

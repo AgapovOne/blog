@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
 
-    @ObservedObject var viewModel: FcisSystemViewModel
+    @ObservedObject var viewModel: SystemViewModel
 
     var body: some View {
         VStack(spacing: 32) {
@@ -27,13 +27,13 @@ struct ContentView: View {
                     }
             }
             Button(
-                action: { viewModel.handle(.userDidTapButton) },
+                action: { viewModel.handle(.didTapButton) },
                 label: { Label("New fact", systemImage: "network") }
             )
         }
         .padding()
         .onAppear {
-            viewModel.handle(.onAppear)
+            viewModel.handle(.didAppear)
         }
     }
 }

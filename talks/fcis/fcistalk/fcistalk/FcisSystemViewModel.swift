@@ -87,10 +87,10 @@ final class FcisSystemViewModel: ObservableObject {
         _ state: inout State
     ) -> [Decision] {
         switch event {
-            case .view(.userDidTapButton):
+            case .view(.didTapButton):
                 state = .loading
                 return [.track(event), .load]
-            case .view(.onAppear):
+            case .view(.didAppear):
                 return []
             case .model(.failedLoading(let error)):
                 return [.log(error), .showSnackbar("SHTO-TO POSHLO NE TAQ")]
