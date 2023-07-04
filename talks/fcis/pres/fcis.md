@@ -26,13 +26,13 @@ autoscale: true
 
 # Gary Bernhardt
 
-![inline fit](gary.png)
+![inline fit](pr_gary.png)
 
 [.column]
 
 # Алексей Озун
 
-![inline center height=500](aozun.png)
+![inline center height=500](pr_aozun.png)
 
 ---
 
@@ -63,9 +63,7 @@ enum State: Equatable {
 }
 
 struct Deps {
-    let track: (Event) -> Void
     let showSnackbar: (String) -> Void
-    let log: (Any...) -> ()
     let fetchFact: () async throws -> Data
 }
 
@@ -79,14 +77,11 @@ func handle(_ event: Event) {}
 ```swift
 func handle(_ event: Event) {
     state = .loading
-    deps.track(event)
     Task {
           do {
             let fact = try await deps.fetchFact()
-            deps.log(fact)
             state = .loaded(fact.text)
         } catch {
-            deps.log(error)
             deps.showSnackbar("Went wrong")
         }
     }
@@ -95,7 +90,14 @@ func handle(_ event: Event) {
 
 ---
 
-# MVVM тесты
+# MVVM тесты. Проблемы
+
+[.code-highlight: all]
+[.code-highlight: 1, 12]
+[.code-highlight: 10, 13]
+[.code-highlight: 5]
+[.code-highlight: 2-7]
+[.code-highlight: all]
 
 ```swift
 let expectation = expectation(description: "fact loading")
@@ -451,7 +453,7 @@ func execute(event: Event) { // 🤡 impure
 
 ---
 
-### **Decision** == Action == Effect == Intent<br/>&<br/>**Executor** == Performer == Handler
+### **Decision** == Action == Command == Intent<br/>&<br/>**Executor** == Performer == Handler
 
 ---
 
@@ -1010,5 +1012,3 @@ How to Control the World
 
 Take control of your dependencies
 📹 **Brandon Williams (youtube)**
-
----

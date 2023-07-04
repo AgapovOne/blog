@@ -34,7 +34,7 @@ final class FcisSystemViewModelIntegrationTests: XCTestCase {
         XCTAssertEqual(viewModel.state, .loading)
 
         wait(for: [expectation])
-        
+
         XCTAssertEqual(viewModel.state, .loaded("some funny fact"))
     }
 

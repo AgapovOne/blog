@@ -6,11 +6,14 @@
 //
 
 import Foundation
+import SwiftUI
 
 enum Event {
     case userDidTapButton
+    case onAppear
 }
 
+@MainActor
 final class SystemViewModel: ObservableObject {
 
     enum State: Equatable {
@@ -37,17 +40,23 @@ final class SystemViewModel: ObservableObject {
     }
 
     func handle(_ event: Event) {
-        state = .loading
-        deps.track(event)
-        Task {
-            do {
-                let fact = try await deps.fetchFact()
-                deps.log(fact)
-                state = .loaded(fact.text)
-            } catch {
-                deps.log(error)
-                deps.showSnackbar("SHTO-TO POSHLO NE TAQ")
-            }
+        deps.log(event)
+        switch event {
+            case .userDidTapButton:
+                state = .loading
+                deps.track(event)
+                Task {
+                    do {
+                        let fact = try await deps.fetchFact()
+                        deps.log(fact)
+                        state = .loaded(fact.text)
+                    } catch {
+                        deps.log(error)
+                        deps.showSnackbar("SHTO-TO POSHLO NE TAQ")
+                    }
+                }
+            case .onAppear:
+                break
         }
     }
 }

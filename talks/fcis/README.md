@@ -23,10 +23,6 @@
 
 Статья с теорией. Немного другими словами, но то же самое.
 
-[Обсуждение на Hacker News о FCIS](https://news.ycombinator.com/item?id=18043058)
-
-Форум и обсуждение
-
 [FP architecture](https://www.youtube.com/watch?v=US8QG9I1XW0)
 
 Много идей. Изоляция, тестирование показались интересными.
@@ -57,9 +53,8 @@ Pointfree про зависимости и их контроль.
 
 [Конспект книги на русском](https://bespoyasov.ru/blog/domain-modelling-made-functional/)
 
-Крутая книга, крутой дед и крутой блог. 
+Крутая книга, крутой дед и крутой блог.
 
 Его [видео про 13 видов посмотреть на черепашку](https://fsharpforfunandprofit.com/posts/13-ways-of-looking-at-a-turtle/) расширило мне кругозор и показало разные способы подхода к одной и той же задаче.
 
 И его [видео про функциональные паттерны](https://fsharpforfunandprofit.com/fppatterns/). Объяснит, что монады это просто моноиды в категории эндофункторов.
-

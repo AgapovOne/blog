@@ -7,6 +7,7 @@
 
 import Foundation
 
+@MainActor
 final class FcisSystemViewModel: ObservableObject {
 
     enum State: Hashable {
@@ -17,7 +18,8 @@ final class FcisSystemViewModel: ObservableObject {
 
     enum Event: Hashable {
         enum ViewEvent: Hashable {
-            case userDidTapButton
+            case didTapButton
+            case didAppear
         }
 
         enum ViewModelEvent: Hashable {
@@ -88,6 +90,8 @@ final class FcisSystemViewModel: ObservableObject {
             case .view(.userDidTapButton):
                 state = .loading
                 return [.track(event), .load]
+            case .view(.onAppear):
+                return []
             case .model(.failedLoading(let error)):
                 return [.log(error), .showSnackbar("SHTO-TO POSHLO NE TAQ")]
             case .model(.finishLoading(let fact)):

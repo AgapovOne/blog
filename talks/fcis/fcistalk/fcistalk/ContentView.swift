@@ -9,18 +9,31 @@ import SwiftUI
 
 struct ContentView: View {
 
-    let viewModel: SystemViewModel
+    @ObservedObject var viewModel: FcisSystemViewModel
 
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        VStack(spacing: 32) {
+            Text("Tap a button to fetch new fact")
+                .font(.largeTitle)
+            switch viewModel.state {
+                case .initial:
+                    Text("Hello")
+                case .loading:
+                    Text("Loading")
+                case let .loaded(fact):
+                    HStack {
+                        Image(systemName: "quote.bubble")
+                        Text(fact)
+                    }
+            }
+            Button(
+                action: { viewModel.handle(.userDidTapButton) },
+                label: { Label("New fact", systemImage: "network") }
+            )
         }
         .padding()
         .onAppear {
-
+            viewModel.handle(.onAppear)
         }
     }
 }
