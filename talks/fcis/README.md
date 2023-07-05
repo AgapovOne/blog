@@ -49,6 +49,10 @@ Pointfree про зависимости и их контроль.
 
 Массив ошибок полезнее. Пригодится для парсинга и превращения типов
 
+[Integrated tests are a scam](https://www.youtube.com/watch?v=VDfX44fZoMc)
+
+Классная теория в тесты про интеграционные, и почему их не должно быть много
+
 [Книга Domain Modeling Made Functional, Scott Wlaschin](https://fsharpforfunandprofit.com/books/)
 
 [Конспект книги на русском](https://bespoyasov.ru/blog/domain-modelling-made-functional/)

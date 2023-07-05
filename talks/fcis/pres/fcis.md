@@ -1,7 +1,5 @@
-footer: ФП паттерны в Swift
 slide-transition: true
 slidenumbers: true
-slidecount: true
 autoscale: true
 
 ![original](first-bg.jpg)
@@ -40,10 +38,9 @@ autoscale: true
 
 - Проблема
 - Теория по функциональному программированию
-- Тестирование и стратегия
+- Тестирование
 - Паттерны фп. Decisions / Executor
 - Функциональное ядро и императивная оболочка
-- Немного про зависимости
 - Пример на MVVM с тестами
 
 ---
@@ -197,7 +194,6 @@ struct Athlete {
 
 - Общение с внешним миром
 - Мутации
-- Состояние
 - Интерфейс пользователя
 
 ^ Без эффектов нельзя
@@ -231,16 +227,6 @@ func sum(_ one: Int, _ two: Int) -> Int {
 1. Детерминирована
 2. Без сайд-эффектов
 3. (Изолирована)
-
----
-
-# Деление
-
-```swift
-func divide(_ num: Double, by divisor: Double) -> Double
-```
-
-## Чистая функция?
 
 ---
 
@@ -300,12 +286,6 @@ func impure() {
 
 ---
 
-# Тесты
-
-![inline](pyramid-types.png)
-
----
-
 # Юниты и интеграционные
 
 ```swift
@@ -323,18 +303,30 @@ func test_integration() {
 
 ---
 
-Integration tests are a scam
+## Интеграционные тесты
 
-📹 **Boundaries, Gary Bernhardt**
+![inline fit](integrat.png)
 
 ---
 
-# Юнит тесты!
+Integration tests are a scam
+
+📹 **J.B. Rainsberger -> Boundaries, Gary Bernhardt**
+
+---
+
+# Юнит тесты
 
 - Быстрые
 - Изолированные
 - Надежные
 - Описательные
+
+---
+
+# Тесты
+
+![inline](pyramid-isolated.png)
 
 ---
 
@@ -346,13 +338,11 @@ Integration tests are a scam
 
 [.column]
 
-- Single Responsibility principle
-- Open/Closed principle
-- Interface Segregation principle
-- Dependency Inversion principle
+- SOLID
 - Factory
 - Strategy
 - Decorator
+- Command
 
 ---
 
@@ -360,13 +350,11 @@ Integration tests are a scam
 
 [.column]
 
-- Single Responsibility principle
-- Open/Closed principle
-- Interface Segregation principle
-- Dependency Inversion principle
+- SOLID
 - Factory
 - Strategy
 - Decorator
+- Command
 
 [.column]
 
@@ -381,8 +369,7 @@ Integration tests are a scam
 # Принципы дизайна в ФП
 
 - Функции, типы, композиция
-- Функции как параметры
-  - Функции как интерфейсы
+- Функции как параметры и интерфейсы
 - Частичное применение и Dependency injection
 - Pipe, chaining
 
@@ -449,10 +436,8 @@ func decision(event: Event, state: State) -> Decision? { // 🫧 pure
 func execute(event: Event) { // 🤡 impure
     let decision = decision(event: Event, state: self.state)
     switch decision {
-        case .showSnackbar:
-            deps.showSnackbar($0)
-        case nil:
-            break
+        case .showSnackbar: deps.showSnackbar($0)
+        case nil: break
     }
 }
 ```
@@ -460,92 +445,6 @@ func execute(event: Event) { // 🤡 impure
 ---
 
 ### **Decision** == Action == Command == Intent<br/>&<br/>**Executor** == Performer == Handler
-
----
-
-# Деление
-
-```swift
-func divide(_ num: Double, by divisor: Double) -> Double
-```
-
-## Чистая функция?
-
----
-
-# Деление
-
-![inline 100%](division.png)
-
-```swift
-// Impure!
-func divide(_ num: Double, by divisor: Double) -> Double {
-    if divisor == 0 {
-        fatalError("Division by zero")
-    }
-    return num / divisor
-}
-```
-
----
-
-# Деление чистое
-
-```swift
-// Pure?
-func divide(
-    _ num: Double,
-    by divisor: Double,
-    onDivisionByZero: () -> Void
-)  -> Double? {
-    if divisor == 0 {
-        onDivisionByZero()
-        return nil
-    }
-    return num / divisor
-}
-```
-
----
-
-# Деление чистое
-
-```swift
-enum DivisionResult {
-    case divisionByZero
-    case success(Double)
-}
-// Pure!
-func divide(
-    _ num: Double,
-    by divisor: Double
-) -> DivisionResult {
-    divisor == 0
-        ? .divisionByZero
-        : .success(num / divisor)
-}
-```
-
----
-
-# Деление чистое
-
-```swift
-func calculate() {
-    switch divide(10, by: 2) {
-        case .success(let result):
-            self.calculationReslut = result
-        case .divisionByZero:
-            deps.destroyDevice()
-    }
-}
-
-// In Tests
-func test_division() {
-    XCTAsertEqual(divide(10, by: 2), .success(5))
-    XCTAsertEqual(divide(10, by: 0), .divisionByZero)
-}
-```
 
 ---
 
@@ -562,14 +461,12 @@ func test_division() {
 [.code-highlight: all]
 
 ```swift
-func sendToOlympics() async -> [Athlete] {
-    let athletes = await Database.athletes
-    return athletes.filter { athlete in
+func sendToOlympics() async {
+    let athletes = await Database.athletes()
+    for athlete in athletes {
         if athlete.trainingHours > 1000 && !athlete.isInjured {
             await Aviasales.buyCheapTickets(athlete)
-            return athlete
         }
-        return nil
     }
 }
 ```
@@ -584,30 +481,16 @@ func sendToOlympics() async -> [Athlete] {
 [.code-highlight: all]
 
 ```swift
-func sendToOlympics() async -> [Athlete] {
-    findPrepared(await Database.athletes).forEach { athlete in
-        Aviasales.buyCheapTickets(athlete)
+// 🐚 Shell
+func sendToOlympics() async {
+    for athlete in filterPrepared(await Database.athletes()) {
+        await Aviasales.buyCheapTickets(athlete)
     }
 }
 
-func findPrepared(_ athletes: [Athlete]) -> [PreparedAthlete] {
-    athletes.filter { try PreparedAthlete($0) }
-}
-```
-
----
-
-# Core & Shell
-
-```swift
-func sendToOlympics() async -> [Athlete] { // 🐚 Shell
-    findPrepared(Database.athletes).forEach { athlete in
-        Aviasales.buyCheapTickets(athlete)
-    }
-}
-
-func findPrepared(_ athletes: [Athlete]) -> [PreparedAthlete] { // 🤯 Core
-    athletes.filter { try PreparedAthlete($0) }
+// 🤯 Core
+func filterPrepared(_ athletes: [Athlete]) -> [PreparedAthlete] {
+    athletes.compactMap { try? PreparedAthlete($0) }
 }
 ```
 
@@ -637,8 +520,8 @@ func findPrepared(_ athletes: [Athlete]) -> [PreparedAthlete] { // 🤯 Core
 struct PreparedAthlete {
     let trainingHours: Float
 
-    init(_ athlete: ) throws {
-        if athlete.isInjured { throw AthleteCreationError.injured }
+    init(_ athlete: Athlete) throws {
+        if athlete.isInjured { throw AthleteError.injured }
         if athlete.trainingHours < 1000 { throw AthleteError.untrained }
     }
 }
@@ -658,6 +541,14 @@ struct PreparedAthlete {
 Parse, don't validate
 
 📄 **Alexis King**
+
+---
+
+# Тесты
+
+![inline](pyramid-types.png)
+
+---
 
 # FCIS в<br />приложении
 
@@ -692,7 +583,7 @@ func handle(_ event: Event) {
     state = .loading
     deps.track(event)
     Task {
-          do {
+        do {
             let fact = try await deps.loadFact()
             deps.log(fact)
             state = .loaded(fact.text)
@@ -734,7 +625,7 @@ func handle(_ event: Event) {
     state = .loading
     deps.track(event)
     Task {
-          do {
+        do {
             let fact = try await deps.loadFact()
             deps.log(fact)
             state = .loaded(fact.text)
@@ -767,7 +658,8 @@ func handle(_ event: Event) {
                     handle(.model(.finishLoading(fact)))
                 } catch {
                     handle(.model(.failedLoading(error.localizedDescription)))
-            } }
+                }
+            }
             case .log(let something): deps.log(something)
             case .track(let event): deps.track(event)
             case .showSnackbar(let message): deps.showSnackbar(message)
@@ -782,19 +674,19 @@ func handle(_ event: Event) {
 
 ```swift
 enum Core {
-  static func makeDecisions(
-      event: Event,
-      state: State
-  ) -> (State, [Decision]) {
-      switch event {
-          case .view(.didTapButton):
-              return (.loading, [.track(event), .load])
-          case .model(.failedLoading(let error)):
-              return (state, [.log(error), .showSnackbar("Went wrong")])
-          case .model(.finishLoading(let fact)):
-              return (.loaded(fact.text), [.log(fact.text)])
-      }
-  }
+    static func makeDecisions(
+        event: Event,
+        state: State
+    ) -> (State, [Decision]) {
+        switch event {
+            case .view(.didTapButton):
+                return (.loading, [.track(event), .load])
+            case .model(.failedLoading(let error)):
+                return (state, [.log(error), .showSnackbar("Went wrong")])
+            case .model(.finishLoading(let fact)):
+                return (.loaded(fact.text), [.log(fact.text)])
+        }
+    }
 }
 ```
 
@@ -804,21 +696,21 @@ enum Core {
 
 ```swift
 enum Core {
-  static func makeDecisions(
-      event: Event,
-      state: inout State
-  ) -> [Decision] {
-      switch event {
-          case .view(.didTapButton):
-              state = .loading
-              return [.track(event), .load]
-          case .model(.failedLoading(let error)):
-              return [.log(error), .showSnackbar("Went wrong")]
-          case .model(.finishLoading(let fact)):
-              state = .loaded(fact.text)
-              return [.log(fact.text)]
-      }
-  }
+    static func makeDecisions(
+        event: Event,
+        state: inout State
+    ) -> [Decision] {
+        switch event {
+            case .view(.didTapButton):
+                state = .loading
+                return [.track(event), .load]
+            case .model(.failedLoading(let error)):
+                return [.log(error), .showSnackbar("Went wrong")]
+            case .model(.finishLoading(let fact)):
+                state = .loaded(fact.text)
+                return [.log(fact.text)]
+        }
+    }
 }
 ```
 
@@ -861,12 +753,12 @@ enum Decision: Hashable {
 
 ```swift
 
-func test_effects_onUserTap_startsLoading() async throws {
+func test_effects_onTap_startsLoading() async throws {
     var state = State.initial
     let decisions = FcisVM.makeDecisions(.view(.didTapButton), &state)
 
     XCTAssertEqual(state, .loading)
-    XCTAssertTrue(decisions.contains(.load))  // Isolated match only on one function of our system
+    XCTAssertTrue(decisions.contains(.load))  // Isolated assert only on one function of our system
 }
 
 func test_effects_onFinishLoading_setsFact() async throws {
@@ -882,20 +774,40 @@ func test_effects_onFinishLoading_setsFact() async throws {
 
 # Как разделить на Core & Shell
 
-1. Выделяем чистые функции
-2. Выносим в них поведение, которое можно протестировать
-3. Используем паттерн Decision Producer / Performer
-4. Связываем ядро и оболочку из сайд-эффектов
+![inline](howto1.png)
 
 ---
 
-# FCIS
+# Как разделить на Core & Shell
+
+1. Выделяем чистые функции с поведением, которое можно протестировать
+
+---
+
+# Как разделить на Core & Shell
+
+![inline](howto2.png)
+
+---
+
+# Как разделить на Core & Shell
+
+1. Выделяем чистые функции с поведением, которое можно протестировать
+2. Используем паттерн Decision Producer / Executor и связываем
+
+---
+
+![inline](howto3.png)
+
+---
+
+![inline](howto4.png)
+
+---
 
 ![inline](fp-ideal.png)
 
 ---
-
-# FCIS
 
 ![inline](fp-fcis-super.png)
 
@@ -966,7 +878,7 @@ func load() {
 
 ---
 
-# Функции!
+# Функции
 
 ---
 
