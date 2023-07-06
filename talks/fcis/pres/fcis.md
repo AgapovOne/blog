@@ -20,17 +20,15 @@ autoscale: true
 
 ---
 
-[.column]
+#### _Gary Bernhardt_
 
-# Gary Bernhardt
+### 📹 Boundaries
 
-![inline fit](pr_gary.png)
+### **&**
 
-[.column]
+#### _Alex Ozun_
 
-# Алексей Озун
-
-![inline center height=500](pr_aozun.png)
+### 📹 Type-Driven Design in Swift
 
 ---
 
