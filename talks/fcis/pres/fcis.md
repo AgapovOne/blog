@@ -24,7 +24,7 @@ autoscale: true
 
 ### 📹 Boundaries
 
-### **&**
+#### **&**
 
 #### _Alex Ozun_
 
@@ -32,7 +32,7 @@ autoscale: true
 
 ---
 
-# [fit] План
+# План
 
 - Проблема
 - Теория по функциональному программированию
@@ -301,6 +301,15 @@ func test_integration() {
 
 ---
 
+# Юнит тесты
+
+- Быстрые
+- Изолированные
+- Надежные
+- Описательные
+
+---
+
 ## Интеграционные тесты
 
 ![inline fit](integrat.png)
@@ -310,15 +319,6 @@ func test_integration() {
 Integration tests are a scam
 
 📹 **J.B. Rainsberger -> Boundaries, Gary Bernhardt**
-
----
-
-# Юнит тесты
-
-- Быстрые
-- Изолированные
-- Надежные
-- Описательные
 
 ---
 
@@ -772,8 +772,6 @@ func test_effects_onFinishLoading_setsFact() async throws {
 
 # Как разделить на Core & Shell
 
-![inline](howto1.png)
-
 ---
 
 # Как разделить на Core & Shell
@@ -784,22 +782,24 @@ func test_effects_onFinishLoading_setsFact() async throws {
 
 # Как разделить на Core & Shell
 
-![inline](howto2.png)
+![inline](how1.png)
+
+---
+
+# Как разделить на Core & Shell
+
+![inline](how2.png)
 
 ---
 
 # Как разделить на Core & Shell
 
 1. Выделяем чистые функции с поведением, которое можно протестировать
-2. Используем паттерн Decision Producer / Executor и связываем
+2. Используем паттерн Decisions / Executor
 
 ---
 
-![inline](howto3.png)
-
----
-
-![inline](howto4.png)
+![inline](how3.png)
 
 ---
 
