@@ -67,6 +67,14 @@ func handle(_ event: Event) {}
 
 ---
 
+## Проблема растущей сложности
+
+- Больше событий
+- Больше зависимостей
+- Больше разветвлений (`if`, `switch`)
+
+---
+
 # MVVM
 
 [.code-highlight: all]
@@ -91,7 +99,7 @@ func handle(_ event: Event) {
 
 ---
 
-# MVVM тесты. Проблемы
+# MVVM тесты
 
 [.code-highlight: all]
 [.code-highlight: 1, 12]
@@ -115,6 +123,16 @@ XCTAssertEqual(viewModel.state, .loading)
 wait(for: [expectation])
 XCTAssertEqual(viewModel.state, .loaded("some funny fact"))
 ```
+
+---
+
+## Проблема тестирования
+
+- Тесты логики со знанием деталей реализации
+  - Количество изменений стейта
+  - Зависимости
+  - Множество ветвлений
+- Асинхронные тесты с expectation
 
 ---
 
@@ -324,7 +342,7 @@ Integration tests are a scam
 
 # Тесты
 
-![inline](pyramid-isolated.png)
+![inline](pyramid-renamed.png)
 
 ---
 
