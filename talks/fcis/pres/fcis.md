@@ -2,9 +2,7 @@ slide-transition: true
 slidenumbers: true
 autoscale: true
 
-![original](first-bg.jpg)
-
-# [fit] Functional **Core**<br/>Imperative **Shell**
+![original](prsnt_cover.png)
 
 ---
 
