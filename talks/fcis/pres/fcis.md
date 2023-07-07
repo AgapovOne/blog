@@ -244,7 +244,7 @@ func sum(_ one: Int, _ two: Int) -> Int {
 
 ---
 
-# Общение между функциями
+![inline 40%](pureimpure.png)
 
 [.column]
 
@@ -263,12 +263,6 @@ func impure() {
     impure()
 }
 ```
-
----
-
-# Общение между функциями
-
-![inline](pureimpure.png)
 
 ---
 
