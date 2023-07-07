@@ -212,8 +212,6 @@ struct Athlete {
 - Мутации
 - Интерфейс пользователя
 
-^ Без эффектов нельзя
-
 ---
 
 # Функции
@@ -265,6 +263,12 @@ func impure() {
     impure()
 }
 ```
+
+---
+
+# Общение между функциями
+
+![inline](pureimpure.png)
 
 ---
 
@@ -788,6 +792,14 @@ func test_effects_onFinishLoading_setsFact() async throws {
 
 ---
 
+![inline](fp-ideal.png)
+
+---
+
+![inline](fp-fcis-super.png)
+
+---
+
 # Как разделить на Core & Shell
 
 ---
@@ -818,14 +830,6 @@ func test_effects_onFinishLoading_setsFact() async throws {
 ---
 
 ![inline](how3.png)
-
----
-
-![inline](fp-ideal.png)
-
----
-
-![inline](fp-fcis-super.png)
 
 ---
 
