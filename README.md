@@ -1,8 +1,10 @@
 # Blog
 
-## [📄 Articles](articles/)
+## [📄 Articles | Статьи](articles/)
 
-## [🎙️ Talks](talks/)
+## [🎙️ Talks | Видео](talks/)
+
+## [📚 Knowledge | База знаний](knowledge/)
 
 ---
 
