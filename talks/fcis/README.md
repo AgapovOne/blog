@@ -1,5 +1,9 @@
 # Доклад Functional 🤯 Core Imperative 🐚 Shell
 
+## Видео
+
+📹 https://www.youtube.com/watch?v=JaXgIibNWSo
+
 В этой же папке лежат
 
 - [Презентация](fcis.pdf)
