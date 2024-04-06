@@ -2,6 +2,8 @@
 
 ## [📄 Articles | Статьи](articles/)
 
+- [Control dependencies with structs in Swift on dev.to](https://dev.to/agapovone/control-dependencies-with-structs-in-swift-379g)
+
 ## [🎙️ Talks | Видео](talks/)
 
 ## [📚 Knowledge | База знаний](knowledge/)
