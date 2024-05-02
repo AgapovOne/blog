@@ -1,4 +1,4 @@
-# Список рекомендация
+# Рекомендации по iOS
 
 ### 🐦 Крутые авторы и разработчики в твиттере
 
@@ -14,7 +14,7 @@
 - [seanallen_dev](https://twitter.com/seanallen_dev)
 - [daveverwer](https://twitter.com/daveverwer)
 - [twostraws](https://twitter.com/twostraws)
-- [pointfree](https://www.twitter.com/pointfreeco) и отдельно [brandon](https://www.twitter.com/mbrandonw), [stephen](https://www.twitter.com/stephencelis)
+- [pointfree](https://www.twitter.com/pointfreeco) и отдельно [Brandon](https://www.twitter.com/mbrandonw), [Stephen](https://www.twitter.com/stephencelis)
 
 ### 📫 Периодические материалы
 
