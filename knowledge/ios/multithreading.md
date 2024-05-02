@@ -53,6 +53,7 @@ GCD когда просто распараллелить, раскидать.
 [Modern Concurrency in Swift: Introduction • Andy Ibanez](https://www.andyibanez.com/posts/modern-concurrency-in-swift-introduction/)
 
 
+
 ## Видео
 
 [Доклад: Повседневные асинхронность и многопоточность / Александр Терентьев](https://www.youtube.com/watch?v=0mULRVLex24&list=PLNSmyatBJig7GmFpPEr9oBiFSBai7V3dC&index=5&t=803s)

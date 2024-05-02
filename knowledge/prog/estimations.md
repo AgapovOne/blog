@@ -1,8 +1,5 @@
 # Estimation in Software
 
-> ✍️ Hand-picked content that I can recommend
-
-
 ## Articles
 
 https://mdalmijn.com/p/11-laws-of-software-estimation-for-complex-work

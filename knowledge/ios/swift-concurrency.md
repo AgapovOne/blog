@@ -19,6 +19,7 @@
 [Rob](https://stackoverflow.com/users/1271826/rob) answers:
 ---
 
+
 > tl;dr
 >
 > The deinit approach may not work for reasons outlined below. Manually canceling that unstructured concurrency from onDisappear is often what we have to do. The exception is .task view modifier which will cancel its tasks automatically (when combined either with structured concurrency or unstructured concurrency wrapped in a withTaskCancellationHandler).
