@@ -52,6 +52,8 @@ GCD когда просто распараллелить, раскидать.
 
 [Modern Concurrency in Swift: Introduction • Andy Ibanez](https://www.andyibanez.com/posts/modern-concurrency-in-swift-introduction/)
 
+[Swift Concurrency](./swift-concurrency.md)
+
 
 
 ## Видео
@@ -62,16 +64,16 @@ GCD когда просто распараллелить, раскидать.
 
 ## Проблемы синхронизации:
 https://github.com/KosyanMedia/aviasales-ios/pull/11712
-полезное чтиво от бывшего разработчика GCD:  [https://gist.github.com/tclementdev/6af616354912b0347cdf6db159c37057](https://gist.github.com/tclementdev/6af616354912b0347cdf6db159c37057) 
+полезное чтиво от бывшего разработчика GCD:  [https://gist.github.com/tclementdev/6af616354912b0347cdf6db159c37057](https://gist.github.com/tclementdev/6af616354912b0347cdf6db159c37057)
 свеженькое напоминание от перфоманс инженера из Apple:
- [https://twitter.com/catfish_man/status/1516909101149671424?s=21&t=Ky8qqh1u_Ex1sc_DHpYNtw](https://twitter.com/catfish_man/status/1516909101149671424?s=21&t=Ky8qqh1u_Ex1sc_DHpYNtw) 
+ [https://twitter.com/catfish_man/status/1516909101149671424?s=21&t=Ky8qqh1u_Ex1sc_DHpYNtw](https://twitter.com/catfish_man/status/1516909101149671424?s=21&t=Ky8qqh1u_Ex1sc_DHpYNtw)
 У меня еще есть примерно десяток ссылок про это, но короче, консенсус сегодняшнего дня в том, что использование конкурентных и глобальных очередей должно триггерить ревьювера)
 А как делать то?
  [Вот](https://twitter.com/catfish_man/status/1516910087092113408?s=21&t=Ky8qqh1u_Ex1sc_DHpYNtw) :
 Just use a lock. Multi-reader single-writer synchronization always looks appealing, but it has a ton of subtle problems. Async writes sound appealing, but bringing up a thread is many orders of magnitude slower than setting a variable.
-Ок, локи, но какие? Будь мы на iOS 16+, ответ был бы прост —  [OSAllocatedUnfairLock](https://developer.apple.com/documentation/os/osallocatedunfairlock) . Это правильная свифтовая обертка над хитрым  [os_unfair_lock](https://twitter.com/beccadax/status/1534722057916731393?s=21&t=Ky8qqh1u_Ex1sc_DHpYNtw) . os_unfair_lock просто так из Свифта не поиспользуешь,  [еще про хитрость](http://www.russbishop.net/the-law) 
+Ок, локи, но какие? Будь мы на iOS 16+, ответ был бы прост —  [OSAllocatedUnfairLock](https://developer.apple.com/documentation/os/osallocatedunfairlock) . Это правильная свифтовая обертка над хитрым  [os_unfair_lock](https://twitter.com/beccadax/status/1534722057916731393?s=21&t=Ky8qqh1u_Ex1sc_DHpYNtw) . os_unfair_lock просто так из Свифта не поиспользуешь,  [еще про хитрость](http://www.russbishop.net/the-law)
 Запомним OSAllocatedUnfairLock на будущее, а что пока?
- [вот](https://twitter.com/catfish_man/status/1566573552525983745?s=21&t=Ky8qqh1u_Ex1sc_DHpYNtw) 
+ [вот](https://twitter.com/catfish_man/status/1566573552525983745?s=21&t=Ky8qqh1u_Ex1sc_DHpYNtw)
 A serial queue or an NSLock is fine
 Это ответ на вопрос для тех, кто до iOS 16 еще не добрался) В целом, если снова говорить о консенсусе в коммьюнити, наш выбор состоит из: серийная очередь, своя **корректная** обертка над os_unfair_lock или NSLock. Акторы пока опускаем, не видел пока никаких рекомендаций по их использованию на низком уровне.
 Серийная очередь понятно, вероятно дороже чем локи. os_unfair_lock — ну можно  [хитрую обертку затащить](https://github.com/apple/swift-async-algorithms/blob/main/Sources/AsyncAlgorithms/Locking.swift) , вероятно очень быстро получится, но что-то слишком много магии в заворачивании этого лока. NSLock — Eskimo  [пишет](https://developer.apple.com/forums/thread/712379) , что до iOS 16 нормально использовать NSLock, а обертки над os_unfair_lock скорее всего того не стоят.
