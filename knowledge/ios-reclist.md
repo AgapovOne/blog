@@ -46,7 +46,7 @@
 - [App Architecture](https://www.objc.io/books/app-architecture/) – книга по архитектурам с примерами
 - [Книги на objc.io](https://www.objc.io/books)
 - [Разные книги с крутым контентом](https://store.raywenderlich.com/) Для начала в iOS хорошая iOS Apprentice.
-- [Книги от Mattt (NSHipster)](https://flight.school/) для углубленного изучения
+- [Flight School. Книги от Mattt (NSHipster)](https://flight.school/) для углубленного изучения
 
 ### 🧡 Swift
 

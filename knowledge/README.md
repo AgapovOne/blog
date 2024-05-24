@@ -2,7 +2,7 @@
 
 > ✍️ Только отобранные вручную статьи, которые я могу рекомендовать
 
-> ✍️ Hand picked articles that I recommend. 
+> ✍️ Hand picked articles that I recommend.
 
 ---
 
@@ -13,7 +13,7 @@ Folders:
 - [iOS](ios/)
 	- [Swift Concurrency](ios/swift-concurrency.md)
 
-[Список общих рекомендаций по iOS](reclist.md)
+[Список общих рекомендаций по iOS](ios-reclist.md)
 
 ---
 
