@@ -18,6 +18,10 @@
 
 ---
 
+More good articles and thoughts in my telegram channel [@agposdev](https://t.me/agposdev)
+
+---
+
 [My macOS setup](https://github.com/AgapovOne/macos-setup). Non-trivial apps, plugins, terminal
 
 ---
